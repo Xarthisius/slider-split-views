@@ -13,7 +13,7 @@ A.init.then(() => {
     showSimbadPointerControl: false,
     showCooGrid: false,
     showContextMenu: true,
-    showZoomControl: false
+    showZoomControl: true
   });
   a1.setFovRange(0.01, 175);
   //a1.gotoRaDec(297.87, 25.96);
@@ -27,7 +27,7 @@ A.init.then(() => {
     survey: 'P/PanSTARRS/DR1/color-z-zg-g',
     showFrameControl: false,
     showFullscreenControl: false,
-    showZoomControl: false,
+    showZoomControl: true,
     showGotoControl: false}
   );
   a2.setFovRange(0.01, 175);
@@ -48,6 +48,25 @@ A.init.then(() => {
       if (Math.abs(a1.getFov()[0] - fov) / fov > 0.01) {
           a1.setFoV(fov);
       }
+  });
+  a2.on('click', function(params) {
+      console.log(params);
+  });
+  $("a.zoomPlus").each(function() {
+      $(this).on('click', function(e) {
+          a1.increaseZoom();
+          a2.increaseZoom();
+          e.preventDefault();
+          return false;
+      });
+  });
+  $("a.zoomMinus").each(function() {
+      $(this).on('click', function(e) {
+          a1.decreaseZoom();
+          a2.decreaseZoom();
+          e.preventDefault();
+          return false;
+      });
   });
   setTimeout(function() {
       $(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5, no_overlay: true});
