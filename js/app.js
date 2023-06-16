@@ -49,9 +49,6 @@ A.init.then(() => {
           a1.setFoV(fov);
       }
   });
-  a2.on('click', function(params) {
-      console.log(params);
-  });
   $("a.zoomPlus").each(function() {
       $(this).on('click', function(e) {
           a1.increaseZoom();
