@@ -12,7 +12,8 @@ A.init.then(() => {
     showCooGridControl: false,
     showSimbadPointerControl: false,
     showCooGrid: false,
-    showContextMenu: true
+    showContextMenu: true,
+    showZoomControl: false
   });
   a1.setFovRange(0.01, 175);
   //a1.gotoRaDec(297.87, 25.96);
@@ -26,6 +27,7 @@ A.init.then(() => {
     survey: 'P/PanSTARRS/DR1/color-z-zg-g',
     showFrameControl: false,
     showFullscreenControl: false,
+    showZoomControl: false,
     showGotoControl: false}
   );
   a2.setFovRange(0.01, 175);
